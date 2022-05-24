@@ -14,8 +14,17 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('chveni kmayofili mexaniki:') }}
                 </div>
+
+                @auth
+                    @if(Auth::user()->profile_picture)
+                    <img src="{{ asset(sprintf('images/%s', Auth::user()->profile_picture)) }}">
+                    @endif
+                    @if(Auth::user()->garage_picture)
+                    <img src="{{ asset(sprintf('images/%s', Auth::user()->garage_picture)) }}">
+                    @endif
+                @endauth
             </div>
         </div>
     </div>
