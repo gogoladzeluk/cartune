@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\MechanicRegisterController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\UserRegisterController;
 use App\Http\Controllers\MobileVerificationController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Auth
+Route::post('/mobile-verification', [MobileVerificationController::class, 'sendCode'])->name('mobile_verification.send_code');
+
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
@@ -28,7 +31,8 @@ Route::get('/register-user', [UserRegisterController::class, 'showRegistrationFo
 Route::post('/register-user', [UserRegisterController::class, 'register']);
 Route::get('/register-mechanic', [MechanicRegisterController::class, 'showRegistrationForm'])->name('register_mechanic');
 Route::post('/register-mechanic', [MechanicRegisterController::class, 'register']);
-Route::post('/mobile-verification', [MobileVerificationController::class, 'sendCode'])->name('mobile_verification.send_code');
+Route::get('/reset-password', [ResetPasswordController::class, 'showResetForm'])->name('reset_password');
+Route::post('/reset-password', [ResetPasswordController::class, 'reset']);
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
