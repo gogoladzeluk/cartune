@@ -19,12 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('mobile')->unique();
             $table->string('profile_picture')->nullable();
-            $table->unsignedTinyInteger('type');
+            $table->unsignedTinyInteger('type')->index();
             $table->string('password');
             $table->rememberToken();
 
             // mechanic fields
-            $table->boolean('active')->default(false);
+            $table->boolean('active')->default(false)->index();
             $table->foreignId('town_id')->nullable()->constrained();
             $table->foreignId('district_id')->nullable()->constrained();
             $table->string('address')->nullable();

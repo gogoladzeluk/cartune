@@ -4,7 +4,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\MechanicRegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\UserRegisterController;
+use App\Http\Controllers\MechanicController;
 use App\Http\Controllers\MobileVerificationController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +38,10 @@ Route::post('/reset-password', [ResetPasswordController::class, 'reset']);
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::get('/mechanics', [MechanicController::class, 'index'])->name('mechanics.index');
+Route::get('/mechanics/{id}', [MechanicController::class, 'show'])->name('mechanics.show');
+
+Route::middleware(['auth', 'isReviewAllowed'])->group(function () {
+    Route::get('/mechanics/{id}/review', [ReviewController::class, 'showReviewForm'])->name('mechanics.review');
+    Route::post('/mechanics/{id}/review', [ReviewController::class, 'review']);
+});
