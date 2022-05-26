@@ -11,6 +11,11 @@ use Illuminate\Validation\Rule;
 
 class ReviewController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function showReviewForm($id)
     {
         return 'view';

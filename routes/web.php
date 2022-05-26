@@ -38,6 +38,7 @@ Route::post('/reset-password', [ResetPasswordController::class, 'reset']);
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+// Mechanics
 Route::get('/mechanics', [MechanicController::class, 'index'])->name('mechanics.index');
 Route::get('/mechanics/{id}', [MechanicController::class, 'show'])->name('mechanics.show');
 
