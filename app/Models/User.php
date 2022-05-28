@@ -82,7 +82,7 @@ class User extends Authenticatable
         return self::mechanics()->active()->offersServices($serviceIds)->get();
     }
 
-    public static function getActiveMechanicById(int $id): User
+    public static function getActiveMechanicById($id): User
     {
         return self::mechanics()->active()->findOrFail($id);
     }

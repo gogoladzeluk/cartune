@@ -16,9 +16,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function () {
-            MobileVerification::where('created_at', '<', now()->subMinutes(2))->delete();
-        });
     }
 
     /**

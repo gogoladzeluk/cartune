@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Jobs\RemoveMobileVerification;
+use App\Jobs\SendSMS;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,21 +29,21 @@ class MobileVerification extends Model
         /** @var MobileVerification $model */
         $model = static::query()->create($attributes);
 
-        $model->sendSms();
+        $model->sendSMS();
+
+        RemoveMobileVerification::dispatch($model->id)->delay(now()->addMinutes(2));
 
         return $model;
     }
 
-    public static function getCodeByMobile(string $mobile)
+    public static function getCodeByMobile($mobile)
     {
-        $mobileVerification = self::where('mobile', $mobile)->first();
-
-        return $mobileVerification ? $mobileVerification->code : null;
+        return self::where('mobile', $mobile)->value('code');
     }
 
-    public function sendSms($author = 'cartune.ge')
+    public function sendSMS()
     {
         $content = urlencode(sprintf('თქვენი კოდია %s', $this->code));
-        // TODO: smsoffice.ge logic
+        SendSMS::dispatch($this->mobile, $content);
     }
 }
