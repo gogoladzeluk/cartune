@@ -115,11 +115,8 @@
                                        class="col-md-4 col-form-label text-md-end">{{ __('Garage Town') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="town_id">
-                                        <option selected disabled>{{ __('Town your garage is in') }}</option>
-                                        @foreach($towns as $town)
-                                            <option value="{{ $town->id }}">{{ $town->title }}</option>
-                                        @endforeach
+                                    <select name="town_id" class="form-select">
+                                        <option selected value="{{ $towns[0]->id }}">{{ $towns[0]->title }}</option>
                                     </select>
 
                                     @error('town_id')
@@ -135,8 +132,8 @@
                                        class="col-md-4 col-form-label text-md-end">{{ __('Garage District') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="district_id">
-                                        <option selected disabled>{{ __('District your garage is in') }}</option>
+                                    <select name="district_id" class="form-select">
+                                        <option selected disabled>{{ __('Choose') }}</option>
                                         @foreach($districts as $district)
                                             <option value="{{ $district->id }}">{{ $district->title }}</option>
                                         @endforeach
@@ -209,7 +206,7 @@
 
                                 <div class="col-md-6">
 
-                                    <select name="service_ids[]" multiple>
+                                    <select name="service_ids[]" multiple class="form-select">
                                         @foreach($services as $service)
                                             <option value="{{ $service->id }}">{{ $service->title }}</option>
                                         @endforeach
