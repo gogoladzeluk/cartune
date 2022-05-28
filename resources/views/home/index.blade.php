@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('chveni kmayofili mexaniki:') }}
+                    {{ __('Main Page') }}:
                 </div>
 
                 @auth
