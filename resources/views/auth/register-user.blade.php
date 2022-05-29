@@ -22,8 +22,8 @@
                                            autocomplete="first_name" autofocus>
 
                                     @error('first_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
@@ -40,8 +40,8 @@
                                            autocomplete="last_name" autofocus>
 
                                     @error('last_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
@@ -57,31 +57,31 @@
                                            value="{{ old('mobile') }}" required autocomplete="mobile" autofocus>
 
                                     @error('mobile')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
                             </div>
 
-{{--                            <div class="row mb-3">--}}
-{{--                                <label for="code"--}}
-{{--                                       class="col-md-4 col-form-label text-md-end">{{ __('Verification Code') }}</label>--}}
+                            {{--                            <div class="row mb-3">--}}
+                            {{--                                <label for="code"--}}
+                            {{--                                       class="col-md-4 col-form-label text-md-end">{{ __('Verification Code') }}</label>--}}
 
-{{--                                <div class="col-md-6">--}}
-{{--                                    <input id="code" type="text"--}}
-{{--                                           class="form-control @error('code') is-invalid @enderror" name="code"--}}
-{{--                                           value="{{ old('code') }}" required autocomplete="code" autofocus>--}}
+                            {{--                                <div class="col-md-6">--}}
+                            {{--                                    <input id="code" type="text"--}}
+                            {{--                                           class="form-control @error('code') is-invalid @enderror" name="code"--}}
+                            {{--                                           value="{{ old('code') }}" required autocomplete="code" autofocus>--}}
 
-{{--                                    @error('code')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                    @enderror--}}
-{{--                                </div>--}}
-{{--                                <a class="get-code" href="#"--}}
-{{--                                   data-url="{{ route('mobile_verification.send_code') }}">{{ __('Get Code') }}</a>--}}
-{{--                            </div>--}}
+                            {{--                                    @error('code')--}}
+                            {{--                                    <span class="text-danger" role="alert">--}}
+                            {{--                                        <small><strong>{{ $message }}</strong></small>--}}
+                            {{--                                    </span>--}}
+                            {{--                                    @enderror--}}
+                            {{--                                </div>--}}
+                            {{--                                <a class="get-code" href="#"--}}
+                            {{--                                   data-url="{{ route('mobile_verification.send_code') }}">{{ __('Get Code') }}</a>--}}
+                            {{--                            </div>--}}
 
                             <div class="row mb-3">
                                 <label for="profile_picture"
@@ -91,11 +91,11 @@
                                     <input id="profile_picture" type="file"
                                            class="form-control @error('profile_picture') is-invalid @enderror"
                                            name="profile_picture" value="{{ old('profile_picture') }}" required
-                                           autocomplete="profile_picture" autofocus>
+                                           autocomplete="profile_picture" autofocus accept="image/*">
 
                                     @error('profile_picture')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
@@ -111,8 +111,8 @@
                                            required autocomplete="new-password">
 
                                     @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>

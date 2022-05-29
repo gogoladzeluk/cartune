@@ -22,8 +22,8 @@
                                            autocomplete="first_name" autofocus>
 
                                     @error('first_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
@@ -40,8 +40,8 @@
                                            autocomplete="last_name" autofocus>
 
                                     @error('last_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
@@ -57,31 +57,31 @@
                                            value="{{ old('mobile') }}" required autocomplete="mobile" autofocus>
 
                                     @error('mobile')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
                             </div>
 
-{{--                            <div class="row mb-3">--}}
-{{--                                <label for="code"--}}
-{{--                                       class="col-md-4 col-form-label text-md-end">{{ __('Verification Code') }}</label>--}}
+                            {{--                            <div class="row mb-3">--}}
+                            {{--                                <label for="code"--}}
+                            {{--                                       class="col-md-4 col-form-label text-md-end">{{ __('Verification Code') }}</label>--}}
 
-{{--                                <div class="col-md-6">--}}
-{{--                                    <input id="code" type="text"--}}
-{{--                                           class="form-control @error('code') is-invalid @enderror" name="code"--}}
-{{--                                           value="{{ old('code') }}" required autocomplete="code" autofocus>--}}
+                            {{--                                <div class="col-md-6">--}}
+                            {{--                                    <input id="code" type="text"--}}
+                            {{--                                           class="form-control @error('code') is-invalid @enderror" name="code"--}}
+                            {{--                                           value="{{ old('code') }}" required autocomplete="code" autofocus>--}}
 
-{{--                                    @error('code')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                    @enderror--}}
-{{--                                </div>--}}
-{{--                                <a class="get-code" href="#"--}}
-{{--                                   data-url="{{ route('mobile_verification.send_code') }}">{{ __('Get Code') }}</a>--}}
-{{--                            </div>--}}
+                            {{--                                    @error('code')--}}
+                            {{--                                    <span class="text-danger" role="alert">--}}
+                            {{--                                        <small><strong>{{ $message }}</strong></small>--}}
+                            {{--                                    </span>--}}
+                            {{--                                    @enderror--}}
+                            {{--                                </div>--}}
+                            {{--                                <a class="get-code" href="#"--}}
+                            {{--                                   data-url="{{ route('mobile_verification.send_code') }}">{{ __('Get Code') }}</a>--}}
+                            {{--                            </div>--}}
 
                             <div class="row mb-3">
                                 <label for="town_id"
@@ -93,8 +93,8 @@
                                     </select>
 
                                     @error('town_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
@@ -106,15 +106,16 @@
 
                                 <div class="col-md-6">
                                     <select name="district_id" class="form-select">
-                                        <option selected disabled>{{ __('Choose') }}</option>
+                                        <option selected disabled></option>
                                         @foreach($districts as $district)
-                                            <option value="{{ $district->id }}">{{ $district->title }}</option>
+                                            <option
+                                                {{ old('district_id') == $district->id ? "selected" : "" }} value="{{ $district->id }}">{{ $district->title }}</option>
                                         @endforeach
                                     </select>
 
                                     @error('district_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
@@ -130,8 +131,8 @@
                                            value="{{ old('address') }}" required autocomplete="address" autofocus>
 
                                     @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
@@ -150,8 +151,8 @@
                                     </select>
 
                                     @error('service_ids[]')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
@@ -165,11 +166,11 @@
                                     <input id="profile_picture" type="file"
                                            class="form-control @error('profile_picture') is-invalid @enderror"
                                            name="profile_picture" value="{{ old('profile_picture') }}" required
-                                           autocomplete="profile_picture" autofocus>
+                                           autocomplete="profile_picture" autofocus accept="image/*">
 
                                     @error('profile_picture')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
@@ -183,11 +184,11 @@
                                     <input id="garage_picture" type="file"
                                            class="form-control @error('garage_picture') is-invalid @enderror"
                                            name="garage_picture" value="{{ old('garage_picture') }}" required
-                                           autocomplete="garage_picture" autofocus>
+                                           autocomplete="garage_picture" autofocus accept="image/*">
 
                                     @error('garage_picture')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
@@ -203,8 +204,8 @@
                                            required autocomplete="new-password">
 
                                     @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="text-danger" role="alert">
+                                        <small><strong>{{ $message }}</strong></small>
                                     </span>
                                     @enderror
                                 </div>
