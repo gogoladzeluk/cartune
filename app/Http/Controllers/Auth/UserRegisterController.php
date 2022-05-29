@@ -56,7 +56,7 @@ class UserRegisterController extends Controller
             'first_name'      => ['required', 'string', 'max:255'],
             'last_name'       => ['required', 'string', 'max:255'],
             'mobile'          => ['required', 'string', 'digits:9', 'unique:users'],
-            'code'            => ['required', 'string', Rule::in([$expectedCode])],
+//            'code'            => ['required', 'string', Rule::in([$expectedCode])],
             'profile_picture' => ['required', 'image'],
             'password'        => ['required', 'string', 'min:8', 'confirmed'],
         ]);

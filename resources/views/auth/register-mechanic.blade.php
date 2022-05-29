@@ -64,51 +64,24 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <label for="code"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Verification Code') }}</label>
+{{--                            <div class="row mb-3">--}}
+{{--                                <label for="code"--}}
+{{--                                       class="col-md-4 col-form-label text-md-end">{{ __('Verification Code') }}</label>--}}
 
-                                <div class="col-md-6">
-                                    <input id="code" type="text"
-                                           class="form-control @error('code') is-invalid @enderror" name="code"
-                                           value="{{ old('code') }}" required autocomplete="code" autofocus>
+{{--                                <div class="col-md-6">--}}
+{{--                                    <input id="code" type="text"--}}
+{{--                                           class="form-control @error('code') is-invalid @enderror" name="code"--}}
+{{--                                           value="{{ old('code') }}" required autocomplete="code" autofocus>--}}
 
-                                    @error('code')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                                <a class="get-code" href="#"
-                                   data-url="{{ route('mobile_verification.send_code') }}">{{ __('Get Code') }}</a>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="password"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password"
-                                           class="form-control @error('password') is-invalid @enderror" name="password"
-                                           required autocomplete="new-password">
-
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="password-confirm"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                           name="password_confirmation" required autocomplete="new-password">
-                                </div>
-                            </div>
+{{--                                    @error('code')--}}
+{{--                                    <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+{{--                                <a class="get-code" href="#"--}}
+{{--                                   data-url="{{ route('mobile_verification.send_code') }}">{{ __('Get Code') }}</a>--}}
+{{--                            </div>--}}
 
                             <div class="row mb-3">
                                 <label for="town_id"
@@ -165,6 +138,26 @@
                             </div>
 
                             <div class="row mb-3">
+                                <label for="service_ids[]"
+                                       class="col-md-4 col-form-label text-md-end">{{ __('Services') }}</label>
+
+                                <div class="col-md-6">
+
+                                    <select name="service_ids[]" multiple class="form-select">
+                                        @foreach($services as $service)
+                                            <option value="{{ $service->id }}">{{ $service->title }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @error('service_ids[]')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
                                 <label for="profile_picture"
                                        class="col-md-4 col-form-label text-md-end">{{ __('Profile Picture') }}</label>
 
@@ -201,22 +194,29 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="service_ids[]"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Services') }}</label>
+                                <label for="password"
+                                       class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                                 <div class="col-md-6">
+                                    <input id="password" type="password"
+                                           class="form-control @error('password') is-invalid @enderror" name="password"
+                                           required autocomplete="new-password">
 
-                                    <select name="service_ids[]" multiple class="form-select">
-                                        @foreach($services as $service)
-                                            <option value="{{ $service->id }}">{{ $service->title }}</option>
-                                        @endforeach
-                                    </select>
-
-                                    @error('service_ids[]')
+                                    @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="password-confirm"
+                                       class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password" class="form-control"
+                                           name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
 
