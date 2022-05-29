@@ -14,18 +14,17 @@ class DistrictSeeder extends Seeder
      */
     public function run()
     {
-        District::create(['title' => 'ავლაბარი']);
-        District::create(['title' => 'ბაგები']);
+        District::create(['title' => 'კრწანისი']);
+        District::create(['title' => 'ჩუღურეთი']);
+        District::create(['title' => 'დიღომი']);
         District::create(['title' => 'გლდანი']);
-        District::create(['title' => 'ვაკე']);
-        District::create(['title' => 'ვარკეთილი']);
-        District::create(['title' => 'ზღვისუბანი']);
-        District::create(['title' => 'მუხიანი']);
-        District::create(['title' => 'ნაძალადევი']);
-        District::create(['title' => 'ორთაჭალა']);
         District::create(['title' => 'საბურთალო']);
-        District::create(['title' => 'სამგორი']);
+        District::create(['title' => 'დიდუბე']);
+        District::create(['title' => 'ვაკე']);
+        District::create(['title' => 'ისანი-სამგორი']);
+        District::create(['title' => 'ვერა']);
+        District::create(['title' => 'მთაწმინდა']);
+        District::create(['title' => 'ნაძალადევი']);
         District::create(['title' => 'სანზონა']);
-        District::create(['title' => 'ღრმაღელე']);
     }
 }
