@@ -15,8 +15,8 @@ class CreateServiceUserTable extends Migration
     {
         Schema::create('service_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('service_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }
