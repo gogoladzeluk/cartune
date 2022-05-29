@@ -15,7 +15,5 @@ class TownSeeder extends Seeder
     public function run()
     {
         Town::create(['title' => 'თბილისი']);
-        Town::create(['title' => 'ქუთაისი']);
-        Town::create(['title' => 'გორი']);
     }
 }

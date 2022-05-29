@@ -14,9 +14,12 @@ class ServiceSeeder extends Seeder
      */
     public function run()
     {
-        Service::create(['title' => 'მატორი']);
-        Service::create(['title' => 'შუშები']);
-        Service::create(['title' => 'ხუნდები']);
-        Service::create(['title' => 'კონდიციონერი']);
+        Service::create(['title' => 'ძრავის სპეციალისტი']);
+        Service::create(['title' => 'გადაცემათა კოლოფის სპეციალისტი']);
+        Service::create(['title' => 'დაიკების სისტემის სპეციალისტი']);
+        Service::create(['title' => 'მეთუნუქე']);
+        Service::create(['title' => 'მღებავი']);
+        Service::create(['title' => 'ელექტრო გაყვანილობის სპეციალისტი']);
+        Service::create(['title' => 'კალიბრაციის სპეციალისტი']);
     }
 }

@@ -88,7 +88,7 @@
                                        class="col-md-4 col-form-label text-md-end">{{ __('Garage Town') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="town_id" class="form-select">
+                                    <select disabled name="town_id" class="form-select">
                                         <option selected value="{{ $towns[0]->id }}">{{ $towns[0]->title }}</option>
                                     </select>
 
