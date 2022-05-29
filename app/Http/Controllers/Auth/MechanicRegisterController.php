@@ -98,7 +98,9 @@ class MechanicRegisterController extends Controller
             'type'            => User::TYPE_MECHANIC,
         ]);
 
-        $user->services()->attach($data['service_ids']);
+        if (isset($data['service_ids'])) {
+            $user->services()->attach($data['service_ids']);
+        }
 
         return $user;
     }
