@@ -106,7 +106,7 @@
 
                                 <div class="col-md-6">
                                     <select name="district_id" class="form-select">
-                                        <option selected disabled></option>
+                                        <option selected disabled>{{ __('Choose') }}</option>
                                         @foreach($districts as $district)
                                             <option
                                                 {{ old('district_id') == $district->id ? "selected" : "" }} value="{{ $district->id }}">{{ $district->title }}</option>
