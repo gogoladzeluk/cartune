@@ -1,0 +1,344 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(227, 253, 253, 0.5);
+}
+
+@media screen and (max-width: 500px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .header-right {
+        float: none;
+    }
+}
+
+.header {
+    overflow: hidden;
+    padding: 10px 10px;
+    background-color: #cbf1f5;
+}
+
+.header a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.header a .logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.header a .active {
+    background-color: rgba(39, 73, 109, 0.7098039216);
+    color: white;
+}
+
+.header a:hover {
+    background-color: rgba(0, 145, 158, 0.4705882353);
+    color: black;
+    border-radius: 50px;
+    transition: 1s;
+}
+
+.header .header-right {
+    float: right;
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .main-box-container {
+        flex-direction: column;
+    }
+
+    .main-box-container .info {
+        text-align: center;
+    }
+
+    .main-box-container .info .info-container .h2-div {
+        width: 100%;
+    }
+}
+
+.main-box {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.main-box .main-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-box .main-box-container .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.main-box .main-box-container .info .info-container h2 {
+    font-size: 20px;
+}
+
+.main-box .main-box-container .left-box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 40%;
+}
+
+.main-box .main-box-container .left-box-container .search {
+    margin-bottom: 2%;
+}
+
+.main-box .main-box-container .left-box-container .border {
+    border: 2px #00909e solid;
+    width: 60%;
+}
+
+
+/* Mechanics Page */
+.mechanics {
+    margin-top: 1300px;
+    width: 800px;
+}
+
+.specialty{
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #4caf4f88;
+    color: black;
+}
+
+.place{
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #4caf4f88;
+    color: black;
+}
+
+.mechanicsHead{
+    display: flex;
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: 25px;
+}
+
+#mech_info {
+    margin: auto;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+#num {
+    margin: auto;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+#prof_pic {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#service {
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center
+}
+
+.score {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.rates {
+    display: flex;
+    margin-top: 5%;
+    padding: 12px 20px;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+
+/* Search */
+#desc{
+    height: 150px;
+}
+/* Rate*/
+.revs {
+    margin-top: 600px;
+}
+
+.btn {
+    margin: auto;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.rate {
+    margin-left: 28%;
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+.ratings{
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 800px;
+    margin: auto;
+    margin-top: 700px;
+    border: 1px solid;
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+
+
+/* SMSCodeVerification + Recovery */
+#verif {
+    width: 61%;
+}
+
+#verification_code {
+    padding: 10px 18px;
+}
+
+#rec {
+    width: 100%;
+    background-color: #f44336;
+}
+
+#txt {
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.2em;
+    color: #0000;
+    text-shadow:
+        0 0 #000,
+        0 1.2em #1095c1;
+    overflow: hidden;
+    transition: .3s;
+}
+
+#txt:hover {
+    text-shadow:
+        0 -1.2em #000,
+        0 0 #1095c1;
+}
+
+/*href button Styling*/
+a.href-button, button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+a.href-button:hover, button:hover {
+    border-radius: 25px;
+    background-color: #4caf4f88;
+    color: black;
+}
+
+/*Input Styling */
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .footer-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+/*# sourceMappingURL=styles.css.map */

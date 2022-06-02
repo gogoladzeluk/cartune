@@ -19,6 +19,7 @@ class CreateReviewsTable extends Migration
             $table->foreignId('mechanic_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedTinyInteger('rating');
             $table->text('content')->nullable();
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

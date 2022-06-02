@@ -18,7 +18,8 @@ class ReviewController extends Controller
 
     public function showReviewForm($id)
     {
-        return 'view';
+        $mechanic = User::getActiveMechanicById($id);
+        return view('reviews.review', ['mechanic' => $mechanic]);
     }
 
     public function review($id, Request $request)
@@ -40,7 +41,7 @@ class ReviewController extends Controller
             'user_id'     => ['required', Rule::exists('users', 'id')],
             'mechanic_id' => ['required', Rule::exists('users', 'id')],
             'rating'      => ['required', 'integer', 'between:1,5'],
-            'content'     => ['text'],
+            'content'     => ['nullable', 'string', 'max:500'],
         ]);
     }
 }

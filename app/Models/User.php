@@ -45,12 +45,12 @@ class User extends Authenticatable
 
     public function town()
     {
-        return $this->hasOne(Town::class);
+        return $this->belongsTo(Town::class);
     }
 
     public function district()
     {
-        return $this->hasOne(District::class);
+        return $this->belongsTo(District::class);
     }
 
     public function services()
@@ -60,7 +60,7 @@ class User extends Authenticatable
 
     public function reviews()
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class, 'mechanic_id');
     }
 
 
@@ -75,16 +75,14 @@ class User extends Authenticatable
     }
 
 
-    public static function getActiveMechanicsByServiceIds(?array $serviceIds) // TODO add: ->withAvg('reviews', 'rating')->orderBy('reviews_avg_rating')
+    public static function getActiveMechanicsByServiceIds(?array $serviceIds)
     {
-        /** @var Builder $query */
-        $query = self::mechanics()->active()->offersServices($serviceIds);
-        return self::mechanics()->active()->offersServices($serviceIds)->get();
+        return self::mechanics()->active()->offersServices($serviceIds)->with('services')->withRating()->orderBy('reviews_avg_rating')->get();
     }
 
     public static function getActiveMechanicById($id): User
     {
-        return self::mechanics()->active()->findOrFail($id);
+        return self::mechanics()->active()->withRating()->findOrFail($id);
     }
 
 
@@ -115,5 +113,10 @@ class User extends Authenticatable
             $query = $query->offersService($serviceId);
         }
         return $query;
+    }
+
+    public function scopeWithRating(Builder $query): Builder
+    {
+        return $query->withAvg('reviews', 'rating');
     }
 }

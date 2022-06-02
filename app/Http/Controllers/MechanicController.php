@@ -22,6 +22,6 @@ class MechanicController extends Controller
     public function show($id)
     {
         $mechanic = User::getActiveMechanicById($id);
-        return $mechanic;
+        return view('mechanics.show', ['mechanic' => $mechanic]);
     }
 }
