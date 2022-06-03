@@ -446,7 +446,7 @@ body {
 
 
 /*href button Styling*/
-a.href-button {
+a.href-button, button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -460,7 +460,7 @@ a.href-button {
     transition: 1s;
 }
 
-a.href-button:hover {
+a.href-button:hover, button:hover {
     border-radius: 25px;
     background-color: #4caf4f88;
     color: black;
@@ -476,7 +476,6 @@ input {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
 
 .footer {
     position: relative;

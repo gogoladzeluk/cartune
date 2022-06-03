@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SearchFor</title>
+    <title>CarTune</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../css/temp_styles.css">
 
@@ -36,39 +36,26 @@
 
 <p style="margin-top: 2%" id="txt">მოძებე შენთვის სასურველი სპეციალისტი</p>
 
-<div class="multi-selector">
-    <div class="select-field">
-        <input type="text" name="" placeholder="აირჩიეთ სპეციალობა" id="" class="input-selector">
-        <span class="down-arrow">&blacktriangledown;</span>
-    </div>
-    <div class="list">
-        @foreach($services as $service)
-            <label for="task{{ $service->id }}" class="task">
-                <input type="checkbox" id="task{{ $service->id }}" name="services[]" value="{{ $service->id }}">
-                {{ $service->title }}
-            </label>
-        @endforeach
-    </div>
-</div>
-
-<div class="dropdown">
-    <span>აირჩიეთ უბანი</span>
-
-    <div class="dropdown-content">
-        @foreach($districts as $district)
-            <label for="task{{ $district->id }}" class="task">
-                <input type="radio" id="task{{ $district->id }}" name="distict" value="{{ $district->id }}">
-                <p>{{ $district->title }}</p>
-            </label>
-        @endforeach
+<form method="GET" action="{{ route('mechanics.index') }}">
+    <div class="multi-selector">
+        <div class="select-field">
+            <input type="text" name="" placeholder="აირჩიეთ სპეციალობა" id="" class="input-selector">
+            <span class="down-arrow">&blacktriangledown;</span>
+        </div>
+        <div class="list">
+            @foreach($services as $service)
+                <label for="task{{ $service->id }}" class="task">
+                    <input type="checkbox" id="task{{ $service->id }}" name="services[]" value="{{ $service->id }}">
+                    {{ $service->title }}
+                </label>
+            @endforeach
+        </div>
     </div>
 
-
-</div>
-
-<div style="width: 16%; text-align: center; margin-left: 42%; margin-top: 10%;">
-    <a class="href-button">მოძებნე</a>
-</div>
+    <div style="width: 16%; text-align: center; margin-left: 42%; margin-top: 10%;">
+        <button type="submit">მოძებნე</button>
+    </div>
+</form>
 
 @foreach($mechanics as $mechanic)
     <a href="{{ route('mechanics.show', ['id' => $mechanic->id]) }}">
@@ -80,7 +67,7 @@
                 <p id="score"> {{ number_format($mechanic->reviews_avg_rating ?? 0, 1, '.', '') }} / 5 <i
                         class="fa fa-star-o"></i> {{ $mechanic->full_name }}</p>
                 <div style="display: flex;">
-                    @foreach($mechanic->services as $service)
+                    @foreach($mechanic->services->filter(fn($value, $key) => in_array($value->id, request()->get('services')))->take(3) as $service)
                         <p style="display:flex; margin-left: 2%;" class="specialty">{{ $service->title }}</p>
                     @endforeach
                 </div>
@@ -93,7 +80,6 @@
     document.querySelector('.select-field').addEventListener('click', () => {
         document.querySelector('.list').classList.toggle('show');
         document.querySelector('.down-arrow').classList.toggle('rotate180');
-
     });
 </script>
 
