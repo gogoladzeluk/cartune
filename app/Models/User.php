@@ -69,7 +69,7 @@ class User extends Authenticatable
         return sprintf('%s %s', $this->first_name, $this->last_name);
     }
 
-    public function getIsMechanic(): bool
+    public function getIsMechanicAttribute(): bool
     {
         return $this->type == self::TYPE_MECHANIC;
     }

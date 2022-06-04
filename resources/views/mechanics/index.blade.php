@@ -67,7 +67,7 @@
                 <p id="score"> {{ number_format($mechanic->reviews_avg_rating ?? 0, 1, '.', '') }} / 5 <i
                         class="fa fa-star-o"></i> {{ $mechanic->full_name }}</p>
                 <div style="display: flex;">
-                    @foreach($mechanic->services->filter(fn($value, $key) => in_array($value->id, request()->get('services')))->take(3) as $service)
+                    @foreach($mechanic->services->filter(fn($value, $key) => in_array($value->id, request()->get('services') ?? $services->pluck('id')->toArray()))->take(3) as $service)
                         <p style="display:flex; margin-left: 2%;" class="specialty">{{ $service->title }}</p>
                     @endforeach
                 </div>
@@ -110,12 +110,9 @@
 
 <div class="footer">
     <div class="footer-container">
-        <div class="phone">
-        </div>
-
         <div class="footer-center">
-            <i class="fa fa-facebook-square fa-2x"></i>
-            <i class="fa fa-linkedin-square fa-2x"></i>
+            <a href="https://www.facebook.com/CarTuuune/" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+            <a href="https://www.linkedin.com/company/cartune0/" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
         </div>
     </div>
 </div>

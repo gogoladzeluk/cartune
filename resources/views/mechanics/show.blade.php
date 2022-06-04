@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CarTune</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../css/temp_styles.css">
+    <link href="{{ asset('css/temp_styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -67,8 +68,11 @@
                     <div class="mech_right_bottom"
                          style="margin: auto; display: flex; justify-content: center;">
                         <a class="href-button" href="javascript:void(0)">{{ $mechanic->mobile }}</a>
+
+                        @if(Auth::id() != $mechanic->id)
                         <a class="href-button"
                            href="{{ route('mechanics.review', ['id' => $mechanic->id]) }}">შეაფასე</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -92,12 +96,9 @@
 
 <div class="footer">
     <div class="footer-container">
-        <div class="phone">
-        </div>
-
         <div class="footer-center">
-            <i class="fa fa-facebook-square fa-2x"></i>
-            <i class="fa fa-linkedin-square fa-2x"></i>
+            <a href="https://www.facebook.com/CarTuuune/" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+            <a href="https://www.linkedin.com/company/cartune0/" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
         </div>
     </div>
 </div>

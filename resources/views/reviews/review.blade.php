@@ -84,12 +84,9 @@
 
 <div class="footer">
     <div class="footer-container">
-        <div class="phone">
-        </div>
-
         <div class="footer-center">
-            <i class="fa fa-facebook-square fa-2x" onclick="fb()"></i>
-            <i class="fa fa-linkedin-square fa-2x"></i>
+            <a href="https://www.facebook.com/CarTuuune/" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+            <a href="https://www.linkedin.com/company/cartune0/" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
         </div>
     </div>
 </div>

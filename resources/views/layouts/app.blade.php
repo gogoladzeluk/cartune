@@ -46,12 +46,20 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ __('Register') }}
+                                </a>
 
-                            @if (Route::has('register_choose'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register_choose') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('register_user') }}">
+                                        {{ __('As User') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('register_mechanic') }}">
+                                        {{ __('As Mechanic') }}
+                                    </a>
+                                </div>
+                            </li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -59,6 +67,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if(Auth::user()->is_mechanic)
+                                        <a class="dropdown-item" href="{{ route('mechanics.show', ['id' => Auth::id()]) }}">{{ __('Profile') }}</a>
+                                    @endif
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -79,6 +91,16 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <div class="footer">
+            <div class="footer-container">
+                <div class="footer-center">
+                    <a href="https://www.facebook.com/CarTuuune/" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+                    <a href="https://www.linkedin.com/company/cartune0/" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>

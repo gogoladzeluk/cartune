@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Review;
 use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
@@ -20,9 +21,11 @@ class IsReviewAllowed
     {
         User::getActiveMechanicById($request->route('id'));
         if ($request->route('id') == Auth::id()) {
-            return redirect(route('home')); // TODO change to custom route / view
+            return back();
         }
-        // TODO check last written review by this user
+        if (Review::where('user_id', Auth::id())->where('mechanic_id', $request->route('id'))->where('created_at', '>=', now()->subDay())->exists()) {
+            return back();
+        }
         return $next($request);
     }
 }
