@@ -6,3 +6,21 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.landing-image-landscape {
+    display: block;
+}
+
+.landing-image-portrait {
+    display: none;
+}
+
+@media screen and (max-width: 849px) {
+    .landing-image-landscape {
+        display: none;
+    }
+
+    .landing-image-portrait {
+        display: block;
+    }
+}
