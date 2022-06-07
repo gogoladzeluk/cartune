@@ -92,7 +92,7 @@ class User extends Authenticatable
 
     public static function getActiveMechanicsByServiceIds(?array $serviceIds)
     {
-        return self::mechanics()->active()->offersServices($serviceIds)->with('services')->withRating()->orderBy('reviews_avg_rating')->get();
+        return self::mechanics()->active()->offersServices($serviceIds)->with('services')->withRating()->orderByDesc('reviews_avg_rating')->get();
     }
 
     public static function getActiveMechanicById($id): User
