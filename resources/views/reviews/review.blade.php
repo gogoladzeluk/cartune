@@ -26,20 +26,20 @@
 </div>
 
 <div class="main-box">
-    <div class="main-box-container">
+    <div style="margin-top: 300px;" class="main-box-container">
 
         <div class="info">
             <div class="info-container">
                 <center>
-                    <p id="txt">ხ ე ლ ო ს ა ნ ი</p>
-                    <form method="POST" action="{{ route('mechanics.review', ['id' => $mechanic->id]) }}"
-                          autocomplete="off">
-                        @csrf
-                        <div class="revs">
-                            <img src="{{ asset(sprintf('images/%s', $mechanic->profile_picture)) }}" alt="prof_pic"
-                                 style="width: 150px; height: 150px; object-fit: cover;">
-                            <p id="score">{{ $mechanic->full_name }}</p>
+                    @csrf
+                    <div class="revs">
+                        <p id="txt">ხ ე ლ ო ს ა ნ ი</p>
+                        <img src="{{ asset(sprintf('images/%s', $mechanic->profile_picture)) }}" alt="prof_pic"
+                             style="width: 150px; height: 150px; object-fit: cover;">
+                        <p id="score">{{ $mechanic->full_name }}</p>
 
+                        <form method="POST" action="{{ route('mechanics.review', ['id' => $mechanic->id]) }}"
+                              autocomplete="off">
                             <div class="rate">
                                 <input type="radio" id="star5" name="rating" value="5"/>
                                 <label for="star5" title="text">5 stars</label>
@@ -69,12 +69,11 @@
                             <br>
                             <br>
 
-                        </div>
-
-                        <div class="btn">
-                            <button type="submit">შეფასება</button>
-                        </div>
-                    </form>
+                            <div class="btn">
+                                <button type="submit">შეფასება</button>
+                            </div>
+                        </form>
+                    </div>
                 </center>
             </div>
         </div>
@@ -85,8 +84,10 @@
 <div class="footer">
     <div class="footer-container">
         <div class="footer-center">
-            <a href="https://www.facebook.com/CarTuuune/" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
-            <a href="https://www.linkedin.com/company/cartune0/" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+            <a href="https://www.facebook.com/CarTuuune/" target="_blank"><i
+                    class="fa fa-facebook-square fa-2x"></i></a>
+            <a href="https://www.linkedin.com/company/cartune0/" target="_blank"><i
+                    class="fa fa-linkedin-square fa-2x"></i></a>
         </div>
     </div>
 </div>

@@ -129,7 +129,7 @@ body {
 /* Mechanics Page */
 .mechanics {
     margin: auto;
-    margin-top: 25%;
+    margin-top: 35%;
     width: 800px;
 }
 
@@ -205,11 +205,6 @@ body {
 /* Search */
 #desc {
     height: 150px;
-}
-
-/* Rate*/
-.revs {
-    margin-top: 40%;
 }
 
 .btn {
