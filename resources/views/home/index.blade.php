@@ -3,12 +3,12 @@
 @section('content')
     <div class="landing-image-landscape" style="width: 100%; height: 100%; margin-top: -70px;">
         <a href="{{ route('mechanics.index') }}">
-            <img src="{{ asset('files/landing_landscape.png') }}" style="width: 100%;">
+            <img src="{{ asset('files/landing_landscape.jpg') }}" style="width: 100%;">
         </a>
     </div>
     <div class="landing-image-portrait" style="width: 100%; height: 100%; margin-top: -50px;">
         <a href="{{ route('mechanics.index') }}">
-            <img src="{{ asset('files/landing_portrait.png') }}" style="width: 100%;">
+            <img src="{{ asset('files/landing_portrait.jpg') }}" style="width: 100%;">
         </a>
     </div>
 @endsection
