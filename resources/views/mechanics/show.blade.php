@@ -59,6 +59,7 @@
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <img class="img-responsive rounded" src="{{ Auth::user()->profile_picture_url }}" style="width: 25px; height: 25px; object-fit: cover; margin-right: 5px;">
                             {{ Auth::user()->full_name }}
                         </a>
 
