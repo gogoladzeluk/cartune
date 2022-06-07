@@ -36,27 +36,6 @@
 
 <p style="margin-top: 2%" id="txt">მოძებე შენთვის სასურველი სპეციალისტი</p>
 
-<form method="GET" action="{{ route('mechanics.index') }}">
-    <div class="multi-selector">
-        <div class="select-field">
-            <input type="text" name="" placeholder="აირჩიეთ სპეციალობა" id="" class="input-selector">
-            <span class="down-arrow">&blacktriangledown;</span>
-        </div>
-        <div class="list">
-            @foreach($services as $service)
-                <label for="task{{ $service->id }}" class="task">
-                    <input type="checkbox" id="task{{ $service->id }}" name="services[]" value="{{ $service->id }}">
-                    {{ $service->title }}
-                </label>
-            @endforeach
-        </div>
-    </div>
-
-    <div style="width: 16%; text-align: center; margin-left: 42%; margin-top: 10%;">
-        <button type="submit">მოძებნე</button>
-    </div>
-</form>
-
 @foreach($mechanics as $mechanic)
     <a href="{{ route('mechanics.show', ['id' => $mechanic->id]) }}">
         <div style="width: 40%; margin-left:30%; " class="rates">
@@ -75,13 +54,6 @@
         </div>
     </a>
 @endforeach
-
-<script>
-    document.querySelector('.select-field').addEventListener('click', () => {
-        document.querySelector('.list').classList.toggle('show');
-        document.querySelector('.down-arrow').classList.toggle('rotate180');
-    });
-</script>
 
 <br>
 <br>
