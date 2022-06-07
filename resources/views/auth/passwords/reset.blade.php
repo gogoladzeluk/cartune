@@ -8,80 +8,81 @@
                     <div class="card-header">{{ __('Reset Password') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('reset_password') }}">
-                            @csrf
+                        {{ __('Contact Us') }}: 591669651
+{{--                        <form method="POST" action="{{ route('reset_password') }}">--}}
+{{--                            @csrf--}}
 
-                            <div class="row mb-3">
-                                <label for="mobile"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Mobile Number') }}</label>
+{{--                            <div class="row mb-3">--}}
+{{--                                <label for="mobile"--}}
+{{--                                       class="col-md-4 col-form-label text-md-end">{{ __('Mobile Number') }}</label>--}}
 
-                                <div class="col-md-6">
-                                    <input id="mobile" type="text"
-                                           class="form-control @error('mobile') is-invalid @enderror" name="mobile"
-                                           value="{{ old('mobile') }}" required autocomplete="mobile" autofocus>
+{{--                                <div class="col-md-6">--}}
+{{--                                    <input id="mobile" type="text"--}}
+{{--                                           class="form-control @error('mobile') is-invalid @enderror" name="mobile"--}}
+{{--                                           value="{{ old('mobile') }}" required autocomplete="mobile" autofocus>--}}
 
-                                    @error('mobile')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
+{{--                                    @error('mobile')--}}
+{{--                                    <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            <div class="row mb-3">
-                                <label for="code"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Verification Code') }}</label>
+{{--                            <div class="row mb-3">--}}
+{{--                                <label for="code"--}}
+{{--                                       class="col-md-4 col-form-label text-md-end">{{ __('Verification Code') }}</label>--}}
 
-                                <div class="col-md-6">
-                                    <input id="code" type="text"
-                                           class="form-control @error('code') is-invalid @enderror" name="code"
-                                           value="{{ old('code') }}" required autocomplete="code" autofocus>
+{{--                                <div class="col-md-6">--}}
+{{--                                    <input id="code" type="text"--}}
+{{--                                           class="form-control @error('code') is-invalid @enderror" name="code"--}}
+{{--                                           value="{{ old('code') }}" required autocomplete="code" autofocus>--}}
 
-                                    @error('code')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                                <a class="get-code" href="#"
-                                   data-url="{{ route('mobile_verification.send_code') }}">{{ __('Get Code') }}</a>
-                            </div>
+{{--                                    @error('code')--}}
+{{--                                    <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+{{--                                <a class="get-code" href="#"--}}
+{{--                                   data-url="{{ route('mobile_verification.send_code') }}">{{ __('Get Code') }}</a>--}}
+{{--                            </div>--}}
 
-                            <div class="row mb-3">
-                                <label for="password"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+{{--                            <div class="row mb-3">--}}
+{{--                                <label for="password"--}}
+{{--                                       class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>--}}
 
-                                <div class="col-md-6">
-                                    <input id="password" type="password"
-                                           class="form-control @error('password') is-invalid @enderror" name="password"
-                                           required autocomplete="new-password">
+{{--                                <div class="col-md-6">--}}
+{{--                                    <input id="password" type="password"--}}
+{{--                                           class="form-control @error('password') is-invalid @enderror" name="password"--}}
+{{--                                           required autocomplete="new-password">--}}
 
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
+{{--                                    @error('password')--}}
+{{--                                    <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            <div class="row mb-3">
-                                <label for="password-confirm"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+{{--                            <div class="row mb-3">--}}
+{{--                                <label for="password-confirm"--}}
+{{--                                       class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>--}}
 
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                           name="password_confirmation" required autocomplete="new-password">
-                                </div>
-                            </div>
+{{--                                <div class="col-md-6">--}}
+{{--                                    <input id="password-confirm" type="password" class="form-control"--}}
+{{--                                           name="password_confirmation" required autocomplete="new-password">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Reset Password') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+{{--                            <div class="row mb-0">--}}
+{{--                                <div class="col-md-6 offset-md-4">--}}
+{{--                                    <button type="submit" class="btn btn-primary">--}}
+{{--                                        {{ __('Reset Password') }}--}}
+{{--                                    </button>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
                     </div>
                 </div>
             </div>
