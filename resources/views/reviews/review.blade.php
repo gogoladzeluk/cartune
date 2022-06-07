@@ -31,7 +31,6 @@
         <div class="info">
             <div class="info-container">
                 <center>
-                    @csrf
                     <div class="revs">
                         <p id="txt">ხ ე ლ ო ს ა ნ ი</p>
                         <img src="{{ asset(sprintf('images/%s', $mechanic->profile_picture)) }}" alt="prof_pic"
@@ -40,6 +39,7 @@
 
                         <form method="POST" action="{{ route('mechanics.review', ['id' => $mechanic->id]) }}"
                               autocomplete="off">
+                            @csrf
                             <div class="rate">
                                 <input type="radio" id="star5" name="rating" value="5"/>
                                 <label for="star5" title="text">5 stars</label>
