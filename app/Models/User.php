@@ -15,6 +15,8 @@ class User extends Authenticatable
     const TYPE_USER = 0;
     const TYPE_MECHANIC = 1;
 
+    const PROFILE_PICTURE_PLACEHOLDER = 'profile_picture_placeholder.jpg';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -74,6 +76,19 @@ class User extends Authenticatable
         return $this->type == self::TYPE_MECHANIC;
     }
 
+    public function getProfilePictureUrlAttribute(): string
+    {
+        if ($this->profile_picture) {
+            return asset(sprintf('images/%s', $this->profile_picture));
+        }
+
+        return asset(sprintf('files/%s', self::PROFILE_PICTURE_PLACEHOLDER));
+    }
+
+    public function getGaragePictureUrlAttribute(): string
+    {
+        return asset(sprintf('images/%s', $this->garage_picture));
+    }
 
     public static function getActiveMechanicsByServiceIds(?array $serviceIds)
     {

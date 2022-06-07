@@ -90,7 +90,7 @@
                                 <div class="col-md-6">
                                     <input id="profile_picture" type="file"
                                            class="form-control @error('profile_picture') is-invalid @enderror"
-                                           name="profile_picture" value="{{ old('profile_picture') }}" required
+                                           name="profile_picture" value="{{ old('profile_picture') }}"
                                            autocomplete="profile_picture" autofocus accept="image/*">
 
                                     @error('profile_picture')

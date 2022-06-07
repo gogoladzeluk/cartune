@@ -93,9 +93,9 @@
             <div class="mechanicsHead" style="padding: 20px 50px">
 
                 <div class="mech_left">
-                    <img id="prof_pic" src="{{ asset(sprintf('images/%s', $mechanic->profile_picture)) }}"
+                    <img id="prof_pic" src="{{ $mechanic->profile_picture_url }}"
                          alt="prof_pic" style="width: 150px; height: 150px; object-fit: cover;">
-                    <img id="service" src="{{ asset(sprintf('images/%s', $mechanic->garage_picture)) }}"
+                    <img id="service" src="{{ $mechanic->garage_picture_url }}"
                          alt="service_pic" style="width: 150px; height: 150px; object-fit: cover;">
                 </div>
 
@@ -137,7 +137,7 @@
 
             @foreach($mechanic->reviews()->latest()->get() as $review)
                 <div class="rates">
-                    <img src="{{ asset(sprintf('images/%s', $review->user->profile_picture)) }}" alt="prof_pic"
+                    <img src="{{ $review->user->profile_picture_url }}" alt="prof_pic"
                          style=" width: 75px; height: 75px; margin-right: 10px; object-fit: cover;">
 
                     <div>

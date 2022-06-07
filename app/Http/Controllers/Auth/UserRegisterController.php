@@ -57,7 +57,7 @@ class UserRegisterController extends Controller
             'last_name'       => ['required', 'string', 'max:255'],
             'mobile'          => ['required', 'string', 'digits:9', 'unique:users'],
 //            'code'            => ['required', 'string', Rule::in([$expectedCode])],
-            'profile_picture' => ['required', 'image', 'max:20000'],
+            'profile_picture' => ['nullable', 'image', 'max:20000'],
             'password'        => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -70,15 +70,17 @@ class UserRegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $profilePictureName = sprintf('%s-%s', time(), $data['profile_picture']->getClientOriginalName());
-        $data['profile_picture']->move(public_path('images'), $profilePictureName);
+        if (isset($data['profile_picture'])) {
+            $profilePictureName = sprintf('%s-%s', time(), $data['profile_picture']->getClientOriginalName());
+            $data['profile_picture']->move(public_path('images'), $profilePictureName);
+        }
 
         /** @var User $user */
         $user = User::create([
             'first_name'      => $data['first_name'],
             'last_name'       => $data['last_name'],
             'mobile'          => $data['mobile'],
-            'profile_picture' => $profilePictureName,
+            'profile_picture' => $profilePictureName ?? null,
             'password'        => Hash::make($data['password']),
             'type'            => User::TYPE_USER,
         ]);

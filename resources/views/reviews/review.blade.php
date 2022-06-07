@@ -91,7 +91,7 @@
                 <center>
                     <div class="revs">
                         <p id="txt">ხ ე ლ ო ს ა ნ ი</p>
-                        <img src="{{ asset(sprintf('images/%s', $mechanic->profile_picture)) }}" alt="prof_pic"
+                        <img src="{{ $mechanic->profile_picture_url }}" alt="prof_pic"
                              style="width: 150px; height: 150px; object-fit: cover;">
                         <p id="score">{{ $mechanic->full_name }}</p>
 

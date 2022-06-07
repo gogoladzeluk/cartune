@@ -87,7 +87,7 @@
 @foreach($mechanics as $mechanic)
     <a href="{{ route('mechanics.show', ['id' => $mechanic->id]) }}">
         <div style="width: 40%; margin-left:30%; " class="rates">
-            <img src="{{ asset(sprintf('images/%s', $mechanic->profile_picture)) }}" alt="prof_pic" style=" width: 75px;
+            <img src="{{ $mechanic->profile_picture_url }}" alt="prof_pic" style=" width: 75px;
             height: 75px; margin-right: 10px; object-fit: cover;">
 
             <div>
