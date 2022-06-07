@@ -300,15 +300,6 @@ body {
         0 0 #1095c1;
 }
 
-.container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    font-size: 25px;
-}
-
 /* Hide the default checkbox */
 .container input {
     visibility: hidden;
@@ -369,8 +360,8 @@ body {
     border-radius: 1px solid;
 }
 
-
-.dropdown {
+/* previously was .dropdown*/
+.dropdown-selector {
     margin-top: 2%;
     text-align: center;
     position: relative;
