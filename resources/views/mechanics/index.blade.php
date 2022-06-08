@@ -87,15 +87,15 @@
 
 @foreach($mechanics as $mechanic)
     <a href="{{ route('mechanics.show', ['id' => $mechanic->id]) }}">
-        <div style="width: 40%; margin-left:30%; " class="rates">
+        <div class="rates">
             <img src="{{ $mechanic->profile_picture_url }}" alt="prof_pic" style=" width: 75px;
             height: 75px; margin-right: 10px; object-fit: cover;">
 
-            <div>
+            <div style="width: auto; overflow: auto;">
                 <p id="score"> {{ number_format($mechanic->reviews_avg_rating ?? 0, 1, '.', '') }} / 5 <i
                         class="fa fa-star-o"></i> {{ $mechanic->full_name }}</p>
-                <div style="display: flex;">
-                    @foreach($mechanic->services->filter(fn($value, $key) => in_array($value->id, request()->get('services') ?? $services->pluck('id')->toArray()))->take(3) as $service)
+                <div class="specialties" style="display: flex; overflow-x: auto;">
+                    @foreach($mechanic->services as $service)
                         <p style="display:flex; margin-left: 2%;" class="specialty">{{ $service->title }}</p>
                     @endforeach
                 </div>

@@ -288,16 +288,9 @@ body {
     line-height: 1.2em;
     color: #0000;
     text-shadow:
-        0 0 #000,
-        0 1.2em #1095c1;
+        0 0 #000;
     overflow: hidden;
     transition: .3s;
-}
-
-#txt:hover {
-    text-shadow:
-        0 -1.2em #000,
-        0 0 #1095c1;
 }
 
 /* Hide the default checkbox */
@@ -473,6 +466,18 @@ input {
     margin: auto;
     display: flex;
     justify-content: center;
+}
+
+.rates {
+    width: 40%;
+    margin-left: 30%;
+}
+
+@media screen and (max-width: 849px) {
+    .rates {
+        width: 100%;
+        margin-left: 0%;
+    }
 }
 
 /*# sourceMappingURL=styles.css.map */
