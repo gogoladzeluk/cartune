@@ -164,6 +164,10 @@
         <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/CarTuuune/" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a></li>
         <li class="ms-3"><a class="text-muted" href="https://www.linkedin.com/company/cartune0/" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
     </ul>
+
+    <div class="col-md-4 d-flex justify-content-center">
+        <span class="text-muted">{{ __('Contact') }}: +995 555   29 02 70</span>
+    </div>
 </footer>
 </body>
 
