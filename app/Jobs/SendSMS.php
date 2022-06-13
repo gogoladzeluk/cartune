@@ -13,7 +13,7 @@ class SendSMS implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $mobile;
+    public $destination;
 
     public $content;
 
@@ -24,10 +24,10 @@ class SendSMS implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($mobile, $content, $author = 'cartune.ge')
+    public function __construct($destination, $content, $author = 'cartune.ge')
     {
-        $this->mobile = $mobile;
-        $this->content = $content;
+        $this->destination = $destination;
+        $this->content = urlencode($content);
         $this->author = $author;
     }
 
@@ -38,6 +38,8 @@ class SendSMS implements ShouldQueue
      */
     public function handle()
     {
-        // TODO smsoffice request
+        $url = sprintf('http://smsoffice.ge/api/v2/send?key=%s&sender=%s&destination=%s&content=%s',
+            config('smsoffice.key'), $this->author, $this->destination, $this->content);
+        $response = file_get_contents($url);
     }
 }

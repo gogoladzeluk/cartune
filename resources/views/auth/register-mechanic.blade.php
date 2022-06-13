@@ -64,24 +64,26 @@
                                 </div>
                             </div>
 
-                            {{--                            <div class="row mb-3">--}}
-                            {{--                                <label for="code"--}}
-                            {{--                                       class="col-md-4 col-form-label text-md-end">{{ __('Verification Code') }}</label>--}}
+{{--                            <div class="row mb-3">--}}
+{{--                                <label for="code"--}}
+{{--                                       class="col-md-4 col-form-label text-md-end">{{ __('Verification Code') }}</label>--}}
 
-                            {{--                                <div class="col-md-6">--}}
-                            {{--                                    <input id="code" type="text"--}}
-                            {{--                                           class="form-control @error('code') is-invalid @enderror" name="code"--}}
-                            {{--                                           value="{{ old('code') }}" required autocomplete="code" autofocus>--}}
+{{--                                <div class="col-md-4">--}}
+{{--                                    <input id="code" type="text"--}}
+{{--                                           class="form-control @error('code') is-invalid @enderror" name="code"--}}
+{{--                                           value="{{ old('code') }}" required autocomplete="code" autofocus>--}}
 
-                            {{--                                    @error('code')--}}
-                            {{--                                    <span class="text-danger" role="alert">--}}
-                            {{--                                        <small><strong>{{ $message }}</strong></small>--}}
-                            {{--                                    </span>--}}
-                            {{--                                    @enderror--}}
-                            {{--                                </div>--}}
-                            {{--                                <a class="get-code" href="#"--}}
-                            {{--                                   data-url="{{ route('mobile_verification.send_code') }}">{{ __('Get Code') }}</a>--}}
-                            {{--                            </div>--}}
+{{--                                    @error('code')--}}
+{{--                                    <span class="text-danger" role="alert">--}}
+{{--                                                                    <small><strong>{{ $message }}</strong></small>--}}
+{{--                                                                </span>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+{{--                                <div class="col-md-2">--}}
+{{--                                    <a class="get-code" href="#"--}}
+{{--                                       data-url="{{ route('mobile_verification.send_code') }}">{{ __('Get Code') }}</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="row mb-3">
                                 <label for="town_id"

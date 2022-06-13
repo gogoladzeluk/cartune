@@ -21,6 +21,10 @@ class MobileVerification extends Model
         'code',
     ];
 
+    public static function getMasterKey() {
+        return env('MOBILE_VERIFICATION_MASTER_KEY');
+    }
+
     public static function create(array $attributes = [])
     {
         self::where('mobile', $attributes['mobile'])->delete();
@@ -43,7 +47,7 @@ class MobileVerification extends Model
 
     public function sendSMS()
     {
-        $content = urlencode(sprintf('თქვენი კოდია %s', $this->code));
+        $content = sprintf('თქვენი კოდია %s', $this->code);
         SendSMS::dispatch($this->mobile, $content);
     }
 }
