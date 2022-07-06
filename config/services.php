@@ -32,6 +32,7 @@ return [
 
     'smsoffice' => [
         'key' => env('SMSOFFICE_KEY'),
-    ]
+        'admin_mobile' => env('ADMIN_MOBILE'),
+    ],
 
 ];

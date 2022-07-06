@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MobileVerificationController;
+use App\Http\Controllers\RequestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/mobile-verification/send', [MobileVerificationController::class, 'send'])->name('api.mobile_verification.send');
+Route::post('/mobile-verification/check', [MobileVerificationController::class, 'check'])->name('api.mobile_verification.check');
+
+Route::post('/requests', [RequestController::class, 'store'])->name('api.request.store');

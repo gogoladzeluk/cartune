@@ -25,23 +25,24 @@ class MobileVerification extends Model
         return env('MOBILE_VERIFICATION_MASTER_KEY');
     }
 
-    public static function create(array $attributes = [])
+    public static function store(array $attributes = [])
     {
         self::where('mobile', $attributes['mobile'])->delete();
 
-        $attributes['code'] = sprintf("%06d", mt_rand(1, 999999));
+        $attributes['code'] = sprintf("%04d", mt_rand(1, 9999));
         /** @var MobileVerification $model */
-        $model = static::query()->create($attributes);
+        $model = self::create($attributes);
 
         $model->sendSMS();
 
-        RemoveMobileVerification::dispatch($model->id)->delay(now()->addMinutes(2));
+//        RemoveMobileVerification::dispatch($model->id)->delay(now()->addMinutes(2));
 
         return $model;
     }
 
     public static function getCodeByMobile($mobile)
     {
+        self::where('created_at', '<', now()->subMinutes(2))->delete();
         return self::where('mobile', $mobile)->value('code');
     }
 

@@ -39,7 +39,7 @@ class SendSMS implements ShouldQueue
     public function handle()
     {
         $url = sprintf('http://smsoffice.ge/api/v2/send?key=%s&sender=%s&destination=%s&content=%s',
-            config('smsoffice.key'), $this->author, $this->destination, $this->content);
+            config('services.smsoffice.key'), $this->author, $this->destination, $this->content);
         $response = file_get_contents($url);
     }
 }
