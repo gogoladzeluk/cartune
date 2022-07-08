@@ -18,6 +18,7 @@ class CreateRequestsTable extends Migration
             $table->string('name');
             $table->string('mobile');
             $table->text('text');
+            $table->unsignedInteger('price');
             $table->timestamps();
         });
     }

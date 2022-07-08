@@ -35,4 +35,7 @@ return [
         'admin_mobile' => env('ADMIN_MOBILE'),
     ],
 
+    'discord' => [
+        'requests_token' => env('DISCORD_REQUESTS_TOKEN'),
+    ]
 ];

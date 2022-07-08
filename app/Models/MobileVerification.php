@@ -25,8 +25,14 @@ class MobileVerification extends Model
         return env('MOBILE_VERIFICATION_MASTER_KEY');
     }
 
+    /**
+     * @throws \Exception
+     */
     public static function store(array $attributes = [])
     {
+        if (self::where('created_at', '>=', now()->subMinute())->exists()) {
+            throw new \Exception('You have to wait before sending another SMS');
+        }
         self::where('mobile', $attributes['mobile'])->delete();
 
         $attributes['code'] = sprintf("%04d", mt_rand(1, 9999));
@@ -34,8 +40,6 @@ class MobileVerification extends Model
         $model = self::create($attributes);
 
         $model->sendSMS();
-
-//        RemoveMobileVerification::dispatch($model->id)->delay(now()->addMinutes(2));
 
         return $model;
     }

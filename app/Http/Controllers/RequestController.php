@@ -20,9 +20,9 @@ class RequestController extends Controller
     {
         try {
             $this->validator($httpRequest->all())->validate();
+            /** @var Request $request */
             $request = Request::create($httpRequest->all());
-            $content = sprintf('შემოვიდა განცხადება მობილურიდან: %s', $request->mobile);
-            SendSMS::dispatch(config('services.smsoffice.admin_mobile'), $content);
+            $request->sendDiscordMessage();
             return response()->json([
                 'status' => 'ok',
             ]);
@@ -36,12 +36,15 @@ class RequestController extends Controller
 
     protected function validator(array $data)
     {
-        $expectedCode = MobileVerification::getCodeByMobile($data['mobile']);
+        $expectedCode = isset($data['mobile'])
+            ? MobileVerification::getCodeByMobile($data['mobile'])
+            : null;
         return Validator::make($data, [
             'name'   => ['required'],
             'mobile' => ['required', 'digits:9'],
             'code'   => ['required', 'string', Rule::in([$expectedCode, MobileVerification::getMasterKey()])],
-            'text'   => ['required', 'string', 'max:500'],
+            'text'   => ['required', 'string'],
+            'price'  => ['required', 'int', 'min:0'],
         ]);
     }
 }
