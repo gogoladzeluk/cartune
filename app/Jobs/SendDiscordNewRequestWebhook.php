@@ -70,11 +70,6 @@ class SendDiscordNewRequestWebhook implements ShouldQueue
                             'inline' => true,
                         ],
                         [
-                            'name'   => 'Price',
-                            'value'  => $this->request->price,
-                            'inline' => true,
-                        ],
-                        [
                             'name'   => 'Description',
                             'value'  => $this->request->text,
                             'inline' => false,

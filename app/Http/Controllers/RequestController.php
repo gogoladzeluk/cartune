@@ -44,7 +44,6 @@ class RequestController extends Controller
             'mobile' => ['required', 'digits:9'],
             'code'   => ['required', 'string', Rule::in([$expectedCode, MobileVerification::getMasterKey()])],
             'text'   => ['required', 'string'],
-            'price'  => ['required', 'int', 'min:0'],
         ]);
     }
 }

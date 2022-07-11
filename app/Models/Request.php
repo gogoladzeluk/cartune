@@ -20,7 +20,6 @@ class Request extends Model
         'name',
         'mobile',
         'text',
-        'price',
     ];
 
     public function sendSMS()
