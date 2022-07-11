@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MobileVerificationController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\TrackingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,4 @@ Route::post('/mobile-verification/send', [MobileVerificationController::class, '
 Route::post('/mobile-verification/check', [MobileVerificationController::class, 'check'])->name('api.mobile_verification.check');
 
 Route::post('/requests', [RequestController::class, 'store'])->name('api.request.store');
+Route::post('/tracking/{type}', [TrackingController::class, 'store'])->name('api.tracking.store');

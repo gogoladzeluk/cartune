@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\SendSMS;
 use App\Models\MobileVerification;
 use App\Models\Request;
 use Illuminate\Http\Request as HttpRequest;
@@ -28,7 +27,7 @@ class RequestController extends Controller
             ]);
         } catch (\Exception $e) {
             return response()->json([
-                'status' => 'error',
+                'status'  => 'error',
                 'message' => $e->getMessage(),
             ]);
         }
