@@ -30,9 +30,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'smsoffice' => [
-        'key' => env('SMSOFFICE_KEY'),
+    'sms_office' => [
+        'key' => env('SMS_OFFICE_KEY'),
         'admin_mobile' => env('ADMIN_MOBILE'),
+        'reference_types' => [
+            \App\Models\MobileVerification::class => 'MV',
+        ],
     ],
 
     'discord' => [

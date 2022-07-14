@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use App\Jobs\SendDiscordNewRequestWebhook;
-use App\Jobs\SendSms;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Request extends Model
+class SmsOfficeDeliveryReport extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -18,13 +16,12 @@ class Request extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'mobile',
-        'text',
+        'status',
+        'destination',
+        'reference',
+        'reason',
+        'timestamp',
+        'operator',
     ];
 
-    public function sendDiscordMessage()
-    {
-        SendDiscordNewRequestWebhook::dispatch($this);
-    }
 }

@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Jobs\RemoveMobileVerification;
-use App\Jobs\SendSMS;
+use App\Jobs\SendSms;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -40,7 +40,7 @@ class MobileVerification extends Model
         /** @var MobileVerification $model */
         $model = self::create($attributes);
 
-        $model->sendSMS();
+        $model->sendSms();
 
         return $model;
     }
@@ -51,9 +51,13 @@ class MobileVerification extends Model
         return self::where('mobile', $mobile)->value('code');
     }
 
-    public function sendSMS()
+    public function sendSms()
     {
         $content = sprintf('თქვენი კოდია %s', $this->code);
-        SendSMS::dispatch($this->mobile, $content);
+        SendSms::dispatch(
+            $this->mobile,
+            $content,
+            config('services.sms_office.reference_types')[MobileVerification::class] . ':' . $this->id
+        );
     }
 }
