@@ -32,7 +32,7 @@ class TrackingController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'ip' => ['required'],
+            'token' => ['required'],
         ]);
     }
 }

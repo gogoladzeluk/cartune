@@ -13,6 +13,7 @@ class Tracking extends Model
     const TYPE_MOBILE = 1;
     const TYPE_CODE = 2;
     const TYPE_FINAL = 3;
+    const TYPE_SEND_SMS = 4;
 
     /**
      * The attributes that are mass assignable.
@@ -21,7 +22,7 @@ class Tracking extends Model
      */
     protected $fillable = [
         'type',
-        'ip',
+        'token',
         'meta',
     ];
 

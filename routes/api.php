@@ -5,6 +5,7 @@ use App\Http\Controllers\RequestController;
 use App\Http\Controllers\TrackingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/token', function (Request $request) {
+    return response()->json([
+        'token' => Str::random(32),
+    ]);
 });
 
 Route::post('/mobile-verification/send', [MobileVerificationController::class, 'send'])->name('api.mobile_verification.send');
