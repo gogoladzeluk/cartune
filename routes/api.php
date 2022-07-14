@@ -36,4 +36,4 @@ Route::post('/requests', [RequestController::class, 'store'])->name('api.request
 
 Route::post('/tracking/{type}', [TrackingController::class, 'store'])->name('api.tracking.store');
 
-Route::post('/sms-office-delivery-reports', [SmsOfficeDeliveryReportController::class, 'store'])->name('api.sms_office_delivery_reports.store');
+Route::get('/sms-office-delivery-reports', [SmsOfficeDeliveryReportController::class, 'store'])->name('api.sms_office_delivery_reports.store');
