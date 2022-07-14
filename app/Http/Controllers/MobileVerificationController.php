@@ -7,6 +7,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 
 class MobileVerificationController extends Controller
 {
@@ -22,6 +23,11 @@ class MobileVerificationController extends Controller
             MobileVerification::store($request->all());
             return response()->json([
                 'status' => 'ok',
+            ]);
+        } catch (ValidationException $e) {
+            return response()->json([
+                'status'  => 'error',
+                'message' => $e->errors(),
             ]);
         } catch (\Exception $e) {
             return response()->json([
@@ -44,6 +50,11 @@ class MobileVerificationController extends Controller
             $this->validatorCheck($request->all())->validate();
             return response()->json([
                 'status' => 'ok',
+            ]);
+        } catch (ValidationException $e) {
+            return response()->json([
+                'status'  => 'error',
+                'message' => $e->errors(),
             ]);
         } catch (\Exception $e) {
             return response()->json([

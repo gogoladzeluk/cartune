@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tracking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class TrackingController extends Controller
 {
@@ -20,6 +21,11 @@ class TrackingController extends Controller
             Tracking::create(array_merge($request->all(), ['type' => $type]));
             return response()->json([
                 'status' => 'ok',
+            ]);
+        } catch (ValidationException $e) {
+            return response()->json([
+                'status'  => 'error',
+                'message' => $e->errors(),
             ]);
         } catch (\Exception $e) {
             return response()->json([

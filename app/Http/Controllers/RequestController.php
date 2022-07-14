@@ -7,6 +7,7 @@ use App\Models\Request;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 
 class RequestController extends Controller
 {
@@ -15,6 +16,9 @@ class RequestController extends Controller
         parent::__construct();
     }
 
+    /**
+     * @throws ValidationException
+     */
     public function store(HttpRequest $httpRequest)
     {
         try {
@@ -24,6 +28,11 @@ class RequestController extends Controller
             $request->sendDiscordMessage();
             return response()->json([
                 'status' => 'ok',
+            ]);
+        } catch (ValidationException $e) {
+            return response()->json([
+                'status'  => 'error',
+                'message' => $e->errors(),
             ]);
         } catch (\Exception $e) {
             return response()->json([
