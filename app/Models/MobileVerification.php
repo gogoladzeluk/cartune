@@ -6,10 +6,11 @@ use App\Jobs\RemoveMobileVerification;
 use App\Jobs\SendSMS;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MobileVerification extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -30,7 +31,7 @@ class MobileVerification extends Model
      */
     public static function store(array $attributes = [])
     {
-        if (self::where('created_at', '>=', now()->subMinute())->exists()) {
+        if (self::where('mobile', $attributes['mobile'])->where('created_at', '>=', now()->subMinute())->exists()) {
             throw new \Exception('You have to wait before sending another SMS');
         }
         self::where('mobile', $attributes['mobile'])->delete();
