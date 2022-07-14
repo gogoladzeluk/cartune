@@ -38,7 +38,10 @@ return [
         ],
     ],
 
-    'discord' => [
-        'requests_token' => env('DISCORD_REQUESTS_TOKEN'),
+    'discord_webhooks' => [
+        'requests' => [
+            'id' => env('DISCORD_WEBHOOKS_REQUESTS_ID'),
+            'token' => env('DISCORD_WEBHOOKS_REQUESTS_TOKEN'),
+        ],
     ]
 ];

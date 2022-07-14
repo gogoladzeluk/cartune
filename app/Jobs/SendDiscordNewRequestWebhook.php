@@ -32,7 +32,10 @@ class SendDiscordNewRequestWebhook implements ShouldQueue
      */
     public function handle()
     {
-        $url = sprintf('https://discord.com/api/webhooks/995040177187729438/%s', config('services.discord.requests_token'));
+        $url = sprintf('https://discord.com/api/webhooks/%s/%s',
+            config('services.discord_webhooks.requests.id'),
+            config('services.discord_webhooks.requests.token'),
+        );
 
         $hookObject = json_encode($this->getPayload(), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
