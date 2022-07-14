@@ -31,7 +31,7 @@ class MobileVerification extends Model
      */
     public static function store(array $attributes = [])
     {
-        if (self::where('mobile', $attributes['mobile'])->where('created_at', '>=', now()->subMinute())->exists()) {
+        if (self::where('mobile', $attributes['mobile'])->where('created_at', '>=', now()->subSeconds(30))->exists()) {
             throw new \Exception('You have to wait before sending another SMS');
         }
         self::where('mobile', $attributes['mobile'])->delete();
