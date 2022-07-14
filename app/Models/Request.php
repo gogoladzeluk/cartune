@@ -23,12 +23,6 @@ class Request extends Model
         'text',
     ];
 
-    public function sendSMS()
-    {
-        $content = sprintf('შემოვიდა განცხადება მობილურიდან: %s', $this->mobile);
-        SendSMS::dispatch(config('services.smsoffice.admin_mobile'), $content);
-    }
-
     public function sendDiscordMessage()
     {
         SendDiscordNewRequestWebhook::dispatch($this);

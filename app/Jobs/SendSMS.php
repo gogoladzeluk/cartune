@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class SendSMS implements ShouldQueue
 {
@@ -39,6 +40,10 @@ class SendSMS implements ShouldQueue
     {
         $url = sprintf('http://smsoffice.ge/api/v2/send?key=%s&sender=%s&destination=%s&content=%s',
             config('services.smsoffice.key'), $this->author, $this->destination, $this->content);
-        $response = file_get_contents($url);
+        $response = json_decode(file_get_contents($url), true);
+
+        if (!$response['Success']) {
+            Log::warning($response);
+        }
     }
 }
