@@ -74,7 +74,7 @@ class SendDiscordDailyReportWebhook implements ShouldQueue
         /** @var Collection $tokenTrackings */
         foreach ($trackings->groupBy('token') as $tokenTrackings) {
             foreach (Tracking::TYPES as $trackingType) {
-                if ($tokenTrackings->where('type', $trackingType)->isEmpty()) continue;
+                if ($tokenTrackings->where('type', $trackingType)->isEmpty()) break;
                 $avgTime = $tokenTrackings->where('type', $trackingType)->map(fn ($item) => $item->created_at->timestamp)->avg();
                 if (isset($lastAvgTime)) {
                     $timesUntil[$trackingType][] = $avgTime - $lastAvgTime;
