@@ -10,11 +10,19 @@ class Tracking extends Model
 {
     use HasFactory, SoftDeletes;
 
-    const TYPE_START = 0;
+    const TYPE_LOAD = 0;
     const TYPE_MOBILE = 1;
+    const TYPE_SEND_CODE = 4;
     const TYPE_CODE = 2;
     const TYPE_FINAL = 3;
-    const TYPE_SEND_SMS = 4;
+
+    const TYPES = [
+        self::TYPE_LOAD,
+        self::TYPE_MOBILE,
+        self::TYPE_SEND_CODE,
+        self::TYPE_CODE,
+        self::TYPE_FINAL,
+    ];
 
     /**
      * The attributes that are mass assignable.

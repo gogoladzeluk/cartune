@@ -43,5 +43,9 @@ return [
             'id' => env('DISCORD_WEBHOOKS_REQUESTS_ID'),
             'token' => env('DISCORD_WEBHOOKS_REQUESTS_TOKEN'),
         ],
+        'reports' => [
+            'id' => env('DISCORD_WEBHOOKS_REPORTS_ID'),
+            'token' => env('DISCORD_WEBHOOKS_REPORTS_TOKEN'),
+        ],
     ]
 ];
